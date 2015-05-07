@@ -38,7 +38,7 @@ GT = "$gt"
 SET = "$set"
 
 """ List of types to check for under Connection.type_checking """
-TYPES_TO_CHECK = [basestring, int, float, list, dict]
+TYPES_TO_CHECK = [str, int, float, list, dict]
 
 """ Indicates that a key in DatabaseObject.DEFAULTS is required """
 REQUIRED = "__required__"
@@ -57,7 +57,7 @@ REQUIRED_VALUES = [REQUIRED, REQUIRED_STRING, REQUIRED_INT, REQUIRED_FLOAT,
                    REQUIRED_LIST, REQUIRED_DICT]
 
 REQUIRED_TYPES = {
-    REQUIRED_STRING: basestring,
+    REQUIRED_STRING: str,
     REQUIRED_INT: int,
     REQUIRED_FLOAT: float,
     REQUIRED_LIST: list,

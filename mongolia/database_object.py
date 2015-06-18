@@ -257,13 +257,22 @@ class DatabaseObject(dict):
             dict.__delitem__(self, key)
     
     def __getattr__(self, key):
-        return self[key]
+        try:
+            return self[key]
+        except KeyError:
+            raise AttributeError("'{}' object has no attribute '{}'".format(self.__class__, key))
     
     def __setattr__(self, key, val):
-        self[key] = val
+        try:
+            self[key] = val
+        except KeyError:
+            raise AttributeError("'{}' object has no attribute '{}'".format(self.__class__, key))
         
     def __delattr__(self, key):
-        del self[key]
+        try:
+            del self[key]
+        except KeyError:
+            raise AttributeError("'{}' object has no attribute '{}'".format(self.__class__, key))
     
     def __dir__(self):
         return sorted(set(dir(type(self)) + self.keys()))
